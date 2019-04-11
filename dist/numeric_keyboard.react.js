@@ -224,9 +224,9 @@ function (_Parent) {
   }
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_0___default()(NumericKeyboard, [{
-    key: "onTouchend",
-    value: function onTouchend(key, event) {
-      _babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_1___default()(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(NumericKeyboard.prototype), "onTouchend", this).call(this, key, event);
+    key: "onClick",
+    value: function onClick(key, event) {
+      _babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_1___default()(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(NumericKeyboard.prototype), "onClick", this).call(this, key, event);
 
       event.nativeEvent.stopImmediatePropagation();
     }
@@ -257,8 +257,8 @@ function (_Parent) {
             "data-key": c.key,
             "data-icon": c.key === lib_keys_js__WEBPACK_IMPORTED_MODULE_10__["ENTER"] ? _this2.kp.entertext : c.key,
             className: "numeric-keyboard-key",
-            onTouchEnd: function onTouchEnd(e) {
-              return _this2.onTouchend(c.key, e);
+            onClick: function onClick(e) {
+              return _this2.onClick(c.key, e);
             }
           });
         }));
@@ -1166,7 +1166,7 @@ var Mixins = {
   set: function set(key, value) {
     this.ks[key] = value;
   },
-  onTouchend: function onTouchend(key) {
+  onClick: function onClick(key) {
     this.dispatch('press', key);
 
     if (key === _keys_js__WEBPACK_IMPORTED_MODULE_0__["ENTER"]) {
@@ -2097,7 +2097,7 @@ function (_Parent) {
 
       return react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("div", {
         className: className,
-        onTouchEnd: this.onFocus.bind(this)
+        onClick: this.onFocus.bind(this)
       }, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_11___default.a.createElement("div", {
         className: "numeric-input-text"
       }, this.ks.rawValue.map(function (c, i) {
@@ -2667,7 +2667,7 @@ var KeyboardCenter = function () {
     register: function register(input) {
       this.unregister();
       activeInput = input;
-      document.addEventListener('touchend', this.unregister, false);
+      document.addEventListener('click', this.unregister, false);
     },
     unregister: function unregister(e) {
       if (!activeInput) {
@@ -2680,7 +2680,7 @@ var KeyboardCenter = function () {
 
       activeInput.closeKeyboard();
       activeInput = null;
-      document.removeEventListener('touchend', this.unregister, false);
+      document.removeEventListener('click', this.unregister, false);
     }
   };
 }();
